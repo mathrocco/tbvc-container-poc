@@ -10,4 +10,6 @@ import UIKit
 class ContainerViewControllerCell: UITableViewCell, ReusableCell {
     
     static let identifier = "ContainerViewControllerCell"
+    
+    weak var containerController: UIViewController?
 }
