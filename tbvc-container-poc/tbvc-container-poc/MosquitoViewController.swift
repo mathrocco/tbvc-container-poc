@@ -12,6 +12,7 @@ typealias Mosquito = String
 class MosquitoViewController: UIViewController {
     
     var mosquitos: [Mosquito]
+    var updateMosquitos: (([Mosquito]) -> Void)?
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
@@ -59,6 +60,7 @@ class MosquitoViewController: UIViewController {
     }
     
     private func reloadMosquitos() {
+        updateMosquitos?(mosquitos)
         stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         configureStackView()
     }

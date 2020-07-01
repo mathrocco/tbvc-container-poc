@@ -51,6 +51,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(cell: ContainerViewControllerCell.self)
         let controller = MosquitoViewController(mosquitos: mosquitos[indexPath.row])
+        controller.updateMosquitos = { [weak self] mosquito in
+            self?.mosquitos[indexPath.row] = mosquito
+        }
+
         cell.containerController = controller
         addChild(controller)
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
