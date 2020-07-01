@@ -10,3 +10,6 @@
 ### Results to observe:
 * How's the table view reload
 * How's the code that keeps cell state
+
+| Result |
+| ![](mosquitos-video.gif) |
