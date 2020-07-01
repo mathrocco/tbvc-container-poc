@@ -14,3 +14,9 @@
 | Result |
 |---|
 | ![](mosquitos-video.gif) | 
+
+### Considerations:
+
+1. Keeping MosquitoVC state brings some complexity that isn't that straight
+  - If the VC is a little bit more complex (e.g. contains a request) it becomes even hard to save and restore this state when cell is reused or table is reloaded
+2. Using VC inside a cell requires more configuration, but it isn't much
