@@ -50,6 +50,10 @@ class MosquitoViewController: UIViewController {
     private func configureStackView() {
         mosquitos.enumerated().forEach { (index, mosquito) in
             let button = BlockButton { [weak self] in
+                if self?.mosquitos[index] == "🔥" {
+                    self?.displayDeadMosquitoAlert()
+                }
+
                 self?.mosquitos[index] = "🔥"
                 self?.reloadMosquitos()
             }
@@ -63,5 +67,15 @@ class MosquitoViewController: UIViewController {
         updateMosquitos?(mosquitos)
         stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         configureStackView()
+    }
+    
+    private func displayDeadMosquitoAlert() {
+        let alertController = UIAlertController(title: "Mosquito is already dead", message: "Kill more mosquitos!", preferredStyle: .actionSheet)
+        let action = UIAlertAction.init(title: "Okay!", style: .default, handler: { _ in
+            alertController.dismiss(animated: true, completion: nil)
+        })
+        
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
