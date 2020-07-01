@@ -12,4 +12,5 @@
 * How's the code that keeps cell state
 
 | Result |
-| ![](mosquitos-video.gif) |
+|---|
+| ![](mosquitos-video.gif) | 
